@@ -6,7 +6,7 @@ export const registerSchema: ZodType<RegisterFormType> = z
     name: z.string().min(2).max(30),
     email: z.string().email(),
     password: z.string().min(5).max(20),
-    password_confirmation: z.string().min(5).max(20),
+    password_confirmation: z.string(),
   })
   .refine((data) => data.password === data.password_confirmation, {
     message: "Passwords do not match!",

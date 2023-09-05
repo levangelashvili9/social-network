@@ -6,10 +6,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "@/validations";
 import { RegisterFormType } from "@/types";
 
-import { AuthInput } from "@/components/shared";
+import {
+  AuthHeading,
+  AuthInput,
+  AuthSubmit,
+  LinkChanger,
+} from "@/components/shared";
 
 export default function Register() {
-  const { register, handleSubmit } = useForm<RegisterFormType>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisterFormType>({
     resolver: zodResolver(registerSchema),
   });
 
@@ -19,21 +28,41 @@ export default function Register() {
 
   return (
     <div>
+      <AuthHeading text="Sign Up" />
       <form onSubmit={handleSubmit(onSubmit)}>
-        <AuthInput label="Full Name" register={register} registerName="name" />
-        <AuthInput label="Email" register={register} registerName="email" />
-        <AuthInput
-          label="Password"
-          register={register}
-          registerName="password"
-        />
-        <AuthInput
-          label="Confirm Password"
-          register={register}
-          registerName="password_confirmation"
-        />
-        <button type="submit">Submit</button>
+        <div className="flex flex-col gap-5 mb-6">
+          <AuthInput
+            placeholder="Full Name"
+            register={register}
+            registerName="name"
+            error={errors.name}
+          />
+          <AuthInput
+            placeholder="Email"
+            register={register}
+            registerName="email"
+            error={errors.email}
+          />
+          <AuthInput
+            placeholder="Password"
+            register={register}
+            registerName="password"
+            error={errors.password}
+          />
+          <AuthInput
+            placeholder="Confirm Password"
+            register={register}
+            registerName="password_confirmation"
+            error={errors.password_confirmation}
+          />
+        </div>
+        <AuthSubmit text="Sign Up" />
       </form>
+      <LinkChanger
+        text="Already have an account?"
+        button="Sign in"
+        link="login"
+      />
     </div>
   );
 }
