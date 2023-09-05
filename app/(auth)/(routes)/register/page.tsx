@@ -1,3 +1,9 @@
 export default function Register() {
-  return <div>register</div>;
+  return (
+    <div>
+      <input type="text" placeholder="sds" />
+      <input type="text" placeholder="sds" />
+      <input type="text" placeholder="sds" />
+    </div>
+  );
 }
