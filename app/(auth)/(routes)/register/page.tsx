@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "@/validations";
 import { RegisterFormType } from "@/types";
 
+import { AuthInput } from "@/components/shared";
+
 export default function Register() {
   const { register, handleSubmit } = useForm<RegisterFormType>({
     resolver: zodResolver(registerSchema),
@@ -18,13 +20,17 @@ export default function Register() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" placeholder="sds" {...register("name")} />
-        <input type="text" placeholder="sds" {...register("email")} />
-        <input type="password" placeholder="sds" {...register("password")} />
-        <input
-          type="password"
-          placeholder="sds"
-          {...register("password_confirmation")}
+        <AuthInput label="Full Name" register={register} registerName="name" />
+        <AuthInput label="Email" register={register} registerName="email" />
+        <AuthInput
+          label="Password"
+          register={register}
+          registerName="password"
+        />
+        <AuthInput
+          label="Confirm Password"
+          register={register}
+          registerName="password_confirmation"
         />
         <button type="submit">Submit</button>
       </form>
