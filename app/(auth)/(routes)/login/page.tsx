@@ -17,12 +17,14 @@ export default function Login() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<LoginFormType>({
     resolver: zodResolver(loginSchema),
   });
 
   const onSubmit = (data: LoginFormType) => {
+    reset();
     console.log(data);
   };
 

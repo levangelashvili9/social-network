@@ -17,12 +17,14 @@ export default function Register() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<RegisterFormType>({
     resolver: zodResolver(registerSchema),
   });
 
   const onSubmit = (data: RegisterFormType) => {
+    reset();
     console.log(data);
   };
 
