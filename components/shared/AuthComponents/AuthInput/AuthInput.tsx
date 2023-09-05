@@ -6,6 +6,7 @@ type Props = {
   registerName: keyof RegisterFormType | keyof LoginFormType;
   register: UseFormRegister<any>;
   error: FieldError | undefined;
+  type?: string;
 };
 
 export const AuthInput: React.FC<Props> = ({
@@ -13,11 +14,12 @@ export const AuthInput: React.FC<Props> = ({
   registerName,
   register,
   error,
+  type,
 }) => {
   return (
     <div className="h-12">
       <input
-        type="text"
+        type={type ?? "text"}
         {...register(registerName)}
         placeholder={placeholder}
         autoComplete="off"

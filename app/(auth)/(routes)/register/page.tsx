@@ -48,12 +48,14 @@ export default function Register() {
             register={register}
             registerName="password"
             error={errors.password}
+            type="password"
           />
           <AuthInput
             placeholder="Confirm Password"
             register={register}
             registerName="password_confirmation"
             error={errors.password_confirmation}
+            type="password"
           />
         </div>
         <AuthSubmit text="Sign Up" />

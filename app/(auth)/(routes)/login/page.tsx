@@ -42,6 +42,7 @@ export default function Login() {
             register={register}
             registerName="password"
             error={errors.password}
+            type="password"
           />
         </div>
         <AuthSubmit text="Sign In" />
