@@ -1,3 +1,10 @@
+import { ThemeSwitcher } from "@/components/shared";
+
 export default function Home() {
-  return <h1>zd</h1>;
+  return (
+    <div>
+      <h1>protected</h1>
+      <ThemeSwitcher />
+    </div>
+  );
 }
