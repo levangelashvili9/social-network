@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 
 import { loginSchema } from "@/validations";
 import { LoginFormType } from "@/types";
@@ -12,8 +13,11 @@ import {
   AuthSubmit,
   LinkChanger,
 } from "@/components/shared";
+import { fetchCSRFToken, loginUser } from "@/services";
 
 export default function Login() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -23,9 +27,16 @@ export default function Login() {
     resolver: zodResolver(loginSchema),
   });
 
-  const onSubmit = (data: LoginFormType) => {
-    reset();
-    console.log(data);
+  const onSubmit = async (data: LoginFormType) => {
+    try {
+      await fetchCSRFToken();
+      await loginUser(data);
+      console.log(data);
+      router.push("/");
+      reset();
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
   };
 
   return (

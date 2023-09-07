@@ -1,7 +1,9 @@
-import ThemeProvider from "@/components/providers/ThemeProvider";
-import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
+import "./globals.css";
+
+import ThemeProvider from "@/components/providers/ThemeProvider";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${font.className} bg-[#f8f9fd]`}>
+      <body className={`${font.className} bg-[#f8f9fd] dark:bg-black`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

@@ -12,6 +12,7 @@ import {
   AuthSubmit,
   LinkChanger,
 } from "@/components/shared";
+import { fetchCSRFToken, registerUser } from "@/services";
 
 export default function Register() {
   const {
@@ -23,9 +24,15 @@ export default function Register() {
     resolver: zodResolver(registerSchema),
   });
 
-  const onSubmit = (data: RegisterFormType) => {
-    reset();
-    console.log(data);
+  const onSubmit = async (data: RegisterFormType) => {
+    try {
+      await fetchCSRFToken();
+      await registerUser(data);
+      console.log(data);
+      reset();
+    } catch (error: any) {
+      console.log(error.response.data);
+    }
   };
 
   return (
