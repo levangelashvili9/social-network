@@ -1,3 +1,4 @@
+"use client";
 import { ThemeSwitcher } from "@/components/shared";
 
 export default function Home() {
