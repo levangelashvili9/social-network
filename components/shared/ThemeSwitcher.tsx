@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 
 export const ThemeSwitcher = () => {
   const [mounted, setMounted] = useState<boolean>(false);
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -15,7 +15,6 @@ export const ThemeSwitcher = () => {
 
   return (
     <div>
-      <div>{theme}</div>
       <button onClick={() => setTheme("light")}>LIGHT</button>
       <button onClick={() => setTheme("dark")}>DARK</button>
     </div>

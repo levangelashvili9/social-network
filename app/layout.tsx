@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${font.className} bg-[#f8f9fd] dark:bg-black`}>
+      <body className={`${font.className} bg-bg-light dark:bg-bg-dark`}>
         <ReduxProvider>
           <ThemeProvider>{children}</ThemeProvider>
         </ReduxProvider>
