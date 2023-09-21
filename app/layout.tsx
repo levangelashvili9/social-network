@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+// import { Navbar } from "@/components/shared";
 
 import "./globals.css";
 
@@ -22,7 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${font.className} bg-bg-light dark:bg-bg-dark`}>
         <ReduxProvider>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            {/* <Navbar /> */}
+            <div>{children}</div>
+          </ThemeProvider>
         </ReduxProvider>
       </body>
     </html>
