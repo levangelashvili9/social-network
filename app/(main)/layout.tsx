@@ -1,4 +1,4 @@
-import { Navbar } from "@/components/shared";
+import { Navbar } from "@/components/shared/NavbarComponents/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Main Layout",
 };
 
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar />

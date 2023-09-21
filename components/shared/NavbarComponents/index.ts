@@ -1,2 +1,1 @@
-export { Navbar } from "./Navbar";
-export { Notifications } from "./components";
+export { Notifications, Chat, Profile } from "./components";

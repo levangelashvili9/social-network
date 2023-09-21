@@ -14,9 +14,10 @@ export const ThemeSwitcher = () => {
   if (!mounted) return null;
 
   return (
-    <div>
-      <button onClick={() => setTheme("light")}>LIGHT</button>
-      <button onClick={() => setTheme("dark")}>DARK</button>
+    <div className="flex">
+      <p>Dark Mode</p>
+      <button onClick={() => setTheme("light")}>Off</button>
+      <button onClick={() => setTheme("dark")}>On</button>
     </div>
   );
 };

@@ -4,12 +4,10 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 import { useCloseOnOutsideClick } from "@/hooks";
+import { useTheme } from "next-themes";
 
-type Props = {
-  theme: string | undefined;
-};
-
-export const Notifications: React.FC<Props> = ({ theme }) => {
+export const Notifications = () => {
+  const { theme } = useTheme();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const notificationsBarRef = useRef(null);
 

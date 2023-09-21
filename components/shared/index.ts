@@ -5,4 +5,4 @@ export {
   AuthHeading,
   LinkChanger,
 } from "./AuthComponents";
-export { Navbar, Notifications } from "./NavbarComponents";
+export { Notifications, Chat, Profile } from "./NavbarComponents";
