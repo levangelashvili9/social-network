@@ -15,5 +15,3 @@ export const useCloseOnOutsideClick = (ref: any, callback: () => void) => {
     };
   }, [ref, callback]);
 };
-
-// export default useCloseOnOutsideClick;

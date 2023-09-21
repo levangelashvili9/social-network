@@ -1,8 +1,9 @@
 "use client";
 
-import { useCloseOnOutsideClick } from "@/hooks";
-import Image from "next/image";
 import { useRef, useState } from "react";
+import Image from "next/image";
+
+import { useCloseOnOutsideClick } from "@/hooks";
 
 type Props = {
   theme: string | undefined;
@@ -15,9 +16,9 @@ export const Notifications: React.FC<Props> = ({ theme }) => {
   useCloseOnOutsideClick(notificationsBarRef, () => setIsVisible(false));
 
   return (
-    <>
+    <div ref={notificationsBarRef}>
       <div
-        onClick={() => setIsVisible(true)}
+        onClick={() => setIsVisible((prev) => !prev)}
         className="rounded-full w-10 h-10 bg-secondary-light dark:bg-secondary-dark flex justify-center items-center cursor-pointer"
       >
         <Image
@@ -32,11 +33,8 @@ export const Notifications: React.FC<Props> = ({ theme }) => {
         />
       </div>
       {isVisible && (
-        <div
-          ref={notificationsBarRef}
-          className="bg-main-light dark:bg-main-dark w-80 h-96 absolute right-0 top-[2.75rem] rounded-lg"
-        ></div>
+        <div className="bg-main-light dark:bg-main-dark w-80 h-96 absolute right-0 top-[2.75rem] rounded-lg"></div>
       )}
-    </>
+    </div>
   );
 };
