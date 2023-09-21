@@ -26,7 +26,6 @@ export default function Register() {
 
   const onSubmit = async (data: RegisterFormType) => {
     try {
-      await fetchCSRFToken();
       await registerUser(data);
       console.log(data);
       reset();
