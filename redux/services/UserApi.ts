@@ -11,5 +11,11 @@ export const userApi = createApi({
     },
     credentials: "include",
   }),
-  endpoints: (builder) => ({}),
+  endpoints: (builder) => ({
+    getUserData: builder.query<any, void>({
+      query: () => "/api/user",
+    }),
+  }),
 });
+
+export const { useGetUserDataQuery } = userApi;

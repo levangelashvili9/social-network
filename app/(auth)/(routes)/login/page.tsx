@@ -29,13 +29,12 @@ export default function Login() {
 
   const onSubmit = async (data: LoginFormType) => {
     try {
-      await fetchCSRFToken();
       await loginUser(data);
       console.log(data);
       router.push("/");
       reset();
     } catch (error: any) {
-      console.log(error.response.data);
+      console.log(error.response.data.message);
     }
   };
 
