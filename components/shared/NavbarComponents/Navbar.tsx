@@ -3,12 +3,11 @@
 import { Notifications, Chat, Profile } from "@/components/shared";
 
 export const Navbar = () => {
-
   return (
-    <div className="bg-main-light dark:bg-main-dark h-14 flex justify-between items-center px-4 border-b border-secondary-light dark:border-secondary-dark">
+    <div className="fixed w-full top-0 left-0 bg-main-light dark:bg-main-dark h-14 flex justify-between items-center px-4 border-b border-secondary-light dark:border-secondary-dark">
       <div>Search</div>
       <div className="flex gap-2 relative">
-        <Notifications  />
+        <Notifications />
         <Chat />
         <Profile />
       </div>

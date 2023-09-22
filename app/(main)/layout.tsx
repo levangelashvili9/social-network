@@ -10,7 +10,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar />
-      <div>{children}</div>
+      <div className="pt-14">{children}</div>
     </div>
   );
 };
