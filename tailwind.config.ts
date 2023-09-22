@@ -20,6 +20,8 @@ const config: Config = {
         "main-dark": "#242526",
         "secondary-light": "#E4E6EB",
         "secondary-dark": "#3A3B3C",
+        "third-light": "#D8DADF",
+        "third-dark": "#4D4E4F",
       },
     },
   },
