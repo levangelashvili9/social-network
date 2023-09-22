@@ -13,7 +13,7 @@ import {
   AuthSubmit,
   LinkChanger,
 } from "@/components/shared";
-import { fetchCSRFToken, loginUser } from "@/services";
+import { loginUser } from "@/services";
 
 export default function Login() {
   const router = useRouter();

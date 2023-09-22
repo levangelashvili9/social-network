@@ -1,5 +1,8 @@
-import { Navbar } from "@/components/shared/NavbarComponents/Navbar";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
+import { Navbar } from "@/components/shared/NavbarComponents/Navbar";
 
 export const metadata: Metadata = {
   title: "Main",
@@ -7,6 +10,10 @@ export const metadata: Metadata = {
 };
 
 const MainLayout = async ({ children }: { children: React.ReactNode }) => {
+  if (!cookies().has("is_user_logged_in")) {
+    redirect("/login");
+  }
+
   return (
     <div>
       <Navbar />
