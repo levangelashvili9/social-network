@@ -17,7 +17,7 @@ export const Notifications = () => {
     <div ref={notificationsBarRef}>
       <div
         onClick={() => setIsVisible((prev) => !prev)}
-        className="rounded-full w-10 h-10 bg-secondary-light dark:bg-secondary-dark flex justify-center items-center cursor-pointer"
+        className="rounded-full w-10 h-10 bg-secondary-light dark:bg-secondary-dark hover:bg-third-light dark:hover:bg-third-dark flex justify-center items-center cursor-pointer"
       >
         <Image
           src={
