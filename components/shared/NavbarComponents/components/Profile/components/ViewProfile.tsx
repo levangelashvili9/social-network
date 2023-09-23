@@ -1,8 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 
-export const ViewProfile = () => {
+type Props = {
+  name?: string;
+  id?: number;
+};
+
+export const ViewProfile: React.FC<Props> = ({ name, id }) => {
   return (
-    <div className="py-1 mb-2 border-b border-secondary-light dark:border-secondary-dark">
+    <Link
+      href={`/users/${id}`}
+      className="py-1 mb-2 border-b border-secondary-light dark:border-secondary-dark"
+    >
       <div className="flex items-center gap-2 cursor-pointer hover:bg-secondary-light dark:hover:bg-secondary-dark rounded-lg h-14 px-2">
         <Image
           src="/images/avatar.png"
@@ -11,8 +20,8 @@ export const ViewProfile = () => {
           height={40}
           className="rounded-full"
         />
-        <h2>Levan Gelashvili</h2>
+        <h2>{name}</h2>
       </div>
-    </div>
+    </Link>
   );
 };

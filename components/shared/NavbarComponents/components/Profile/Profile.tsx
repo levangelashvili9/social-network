@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 import { useCloseOnOutsideClick } from "@/hooks";
+import { useGetUserDataQuery } from "@/redux/services/UserApi";
 
 import {
   Display,
@@ -18,6 +19,7 @@ export const Profile = () => {
   const [barVisible, setBarVisible] = useState<string | null>(null);
   const profileBarRef = useRef(null);
   const { theme } = useTheme();
+  const { data } = useGetUserDataQuery();
 
   useCloseOnOutsideClick(profileBarRef, () => setBarVisible(null));
 
@@ -47,7 +49,7 @@ export const Profile = () => {
 
       {barVisible === "profile" && (
         <div className="bg-main-light dark:bg-main-dark w-80 absolute right-0 top-[2.75rem] rounded-lg p-3">
-          <ViewProfile />
+          <ViewProfile name={data?.name} id={data?.id} />
           <Settings />
           <Display theme={theme} displayBarToggler={displayBarToggler} />
           <Logout />

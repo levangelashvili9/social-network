@@ -1,3 +1,4 @@
+import { UserDatatType } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { getCookie } from "cookies-next";
 
@@ -12,7 +13,7 @@ export const userApi = createApi({
     credentials: "include",
   }),
   endpoints: (builder) => ({
-    getUserData: builder.query<any, void>({
+    getUserData: builder.query<UserDatatType, void>({
       query: () => "/api/user",
     }),
   }),
