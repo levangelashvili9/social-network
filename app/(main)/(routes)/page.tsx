@@ -1,3 +1,10 @@
+import { CreatePost, NewsFeed } from "@/components/home";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <CreatePost />
+      <NewsFeed />
+    </div>
+  );
 }
